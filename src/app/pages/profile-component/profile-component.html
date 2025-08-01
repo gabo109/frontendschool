@@ -1,0 +1,35 @@
+<div class="admin-container">
+    <h1>Detalles del perfil</h1>
+    <div class="container">
+        <div class="text-center">
+            <img src="assets/profile.jpg" alt="Imagen de contacto" class="profile-image">
+            <h2 class="mt20">{{ user.nombre }} {{ user.apellido }}</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <table class="profile-table">
+                    <tr>
+                        <td>Nombre de usuario</td>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td>{{ user.id }}</td>
+                    </tr>
+                    <tr>
+                        <td>Teléfono</td>
+                        <td>{{ user.telefono }}</td>
+                    </tr>
+                    <tr>
+                        <td>Rol</td>
+                        <td>{{ user.authorities[0].authority }}</td>
+                    </tr>
+                    <tr>
+                        <td>Estado</td>
+                        <td>{{ user.enabled ? "Activo" : "No activo"}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

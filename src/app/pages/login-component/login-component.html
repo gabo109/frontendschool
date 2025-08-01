@@ -1,0 +1,25 @@
+<div class="body">
+
+  <div class="login-container">
+    <img src="assets/login.png" alt="Imagen de contacto">
+
+    <h2>Iniciar Sesión</h2>
+    <form #userForm="ngForm" (ngSubmit)="formSubmit()">
+      <input type="text" [(ngModel)]="loginData.username" name="username" class="form-element" placeholder="Usuario"
+        required #username="ngModel">
+      <div *ngIf="username.invalid && (username.touched || userForm.submitted)" class="error">
+        El usuario es obligatorio
+      </div>
+      <input type="password" [(ngModel)]="loginData.password" name="password" class="form-element"
+        placeholder="Contraseña" required #password="ngModel">
+      <div *ngIf="password.invalid && (password.touched || userForm.submitted)" class="error">
+        La contraseña es obligatoria
+      </div>
+      <div *ngIf="loginError" class="error">
+        {{ loginError }}
+      </div>
+      <button type="submit" class="form-element">Entrar</button>
+    </form>
+  </div>
+
+</div>

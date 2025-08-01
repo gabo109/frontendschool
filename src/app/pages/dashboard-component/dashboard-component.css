@@ -1,0 +1,20 @@
+.main-layout {
+  display: flex;
+  background: linear-gradient(to right, #83a4d4, #b6fbff);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar-container {
+  width: 250px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.main-content {
+  flex: 1;
+    padding-left: 2rem;
+  overflow-y: auto;
+}

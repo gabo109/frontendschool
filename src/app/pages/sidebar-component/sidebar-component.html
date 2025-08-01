@@ -1,0 +1,19 @@
+<div class="sidebar">
+  <div class="sidebar-header">
+    <img src="../../../assets/login.png" alt="Logo" />
+    <h3>Menú</h3>
+  </div>
+  <nav class="nav-links">
+    <ng-container *ngFor="let item of menu">
+      <a *ngIf="isVisible(item)"
+         [routerLink]="item.route"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: item.route === '/admin' }">
+        {{ item.icon }} {{ item.label }}
+      </a>
+    </ng-container>
+
+    <!-- siempre visible sacar sesión -->
+    <a (click)="logout()" style="cursor: pointer;">🚪 Salir</a>
+  </nav>
+</div>

@@ -1,0 +1,62 @@
+<div class="register-container" aria-label="Formulario de registro">
+    <h2>Registro de Usuario</h2>
+    <form #userForm="ngForm" (ngSubmit)="formSubmit()">
+        <div class="field">
+            <label for="username">Nombre de usuario</label>
+            <input id="username" name="username" type="text" required placeholder="Nombre de usuario"
+                [(ngModel)]="userData.username" #username="ngModel" />
+            <div *ngIf="username.invalid && (username.touched || userForm.submitted)" class="error">
+                El usuario es obligatorio
+            </div>
+        </div>
+        <div class="field">
+            <label for="password">Contraseña de usuario</label>
+            <input id="password" name="password" type="password" required placeholder="Contraseña de usuario"
+                [(ngModel)]="userData.password" #password="ngModel" />
+            <div *ngIf="password.invalid && (password.touched || userForm.submitted)" class="error">
+                La contraseña es obligatoria
+            </div>
+        </div>
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required placeholder="Nombre de usuario"
+                [(ngModel)]="userData.nombre" #nombre="ngModel" />
+            <div *ngIf="nombre.invalid && (nombre.touched || userForm.submitted)" class="error">
+                El nombre es obligatorio
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" name="apellido" type="text" required placeholder="Apellido de usuario"
+                [(ngModel)]="userData.apellido" #apellido="ngModel" />
+            <div *ngIf="apellido.invalid && (apellido.touched || userForm.submitted)" class="error">
+                El apellido es obligatorio
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" required placeholder="Email de usuario"
+                [(ngModel)]="userData.email" #email="ngModel" />
+            <div *ngIf="email.invalid && (email.touched || userForm.submitted)" class="error">
+                El email es obligatorio
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" name="telefono" type="text" required placeholder="Teléfono de usuario"
+                [(ngModel)]="userData.telefono" #telefono="ngModel" />
+            <div *ngIf="telefono.invalid && (telefono.touched || userForm.submitted)" class="error">
+                El teléfono es obligatorio
+            </div>
+        </div>
+        <div *ngIf="messageError" class="error">
+            {{ messageError }}
+        </div>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </div>
+    </form>
+</div>

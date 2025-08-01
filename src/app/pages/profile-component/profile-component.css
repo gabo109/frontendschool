@@ -1,0 +1,74 @@
+.admin-container {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  text-align: center;
+
+}
+
+.admin-container h1 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.profile-image {
+  max-width: 150px;
+  max-height: 150px;
+  border: 2px solid gainsboro;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.06);
+}
+
+.profile-table {
+  width: 100%;
+  margin: 20px auto 0 auto;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-table th,
+.profile-table td {
+  padding: 14px 20px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.profile-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  width: 40%;
+}
+
+.profile-table td {
+  background-color: #fff;
+  color: #333;
+}
+
+.estado {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.estado.activo {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.estado.no-activo {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
