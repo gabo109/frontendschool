@@ -1,0 +1,65 @@
+<div class="register-container">
+    <h2>Niveles Educativos</h2>
+    <form #nivelForm="ngForm" (ngSubmit)="formSubmit(nivel, nivelForm)">
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required placeholder="Nombre" [(ngModel)]="nivel.nombre"
+                #nombre="ngModel" />
+            <div *ngIf="nombre.invalid && (nombre.touched || nivelForm.submitted)" class="error">
+                El nombre es obligatorio
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="descripcion">Descripción</label>
+            <input id="descripcion" name="descripcion" type="text" required placeholder="Descripción"
+                [(ngModel)]="nivel.descripcion" #descripcion="ngModel" />
+            <div *ngIf="descripcion.invalid && (descripcion.touched || nivelForm.submitted)" class="error">
+                La descripción es obligatoria
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="checkbox-inline" for="activo">
+                Activo
+                <input id="activo" type="checkbox" [(ngModel)]="nivel.activo" name="activo" />
+            </label>
+        </div>
+
+
+        <div *ngIf="messageError" class="error">
+            {{ messageError }}
+        </div>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">{{ nivel.id ? 'Actualizar' : 'Guardar' }}</button>
+        </div>
+    </form>
+    <br />
+    @if (niveles.length > 0) {
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Activo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (nivel of niveles ; track nivel.id) {
+            <tr>
+                <td>{{ nivel.id }}</td>
+                <td>{{ nivel.nombre }}</td>
+                <td>{{ nivel.descripcion }}</td>
+                <td>{{ nivel.activo ? 'SI' : 'NO'}}</td>
+                <td><button class="btn btn-edit" (click)="editNivel(nivel)">Editar</button></td>
+                <td><button class="btn btn-delete" (click)="confirmDelete(nivel.id)">Eliminar</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+</div>

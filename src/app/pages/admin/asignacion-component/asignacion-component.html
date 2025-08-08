@@ -1,0 +1,54 @@
+<div class="register-container">
+    <h2>Área</h2>
+    <form #areaForm="ngForm" (ngSubmit)="formSubmit(area, areaForm)">
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required placeholder="Nombre" [(ngModel)]="area.nombre"
+                #nombre="ngModel" />
+            <div *ngIf="nombre.invalid && (nombre.touched || areaForm.submitted)" class="error">
+                El nombre es obligatorio
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="checkbox-inline" for="activo">
+                Activo
+                <input id="activo" type="checkbox" [(ngModel)]="area.activo" name="activo" />
+            </label>
+        </div>
+
+
+        <div *ngIf="messageError" class="error">
+            {{ messageError }}
+        </div>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">{{ area.id ? 'Actualizar' : 'Guardar' }}</button>
+        </div>
+    </form>
+    <br />
+    @if (areas.length > 0) {
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (area of areas ; track area.id) {
+            <tr>
+                <td>{{ area.id }}</td>
+                <td>{{ area.nombre }}</td>
+                <td>{{ area.activo ? 'SI' : 'NO'}}</td>
+                <td><button class="btn btn-edit" (click)="editArea(area)">Editar</button></td>
+                <td><button class="btn btn-delete" (click)="confirmDelete(area.id)">Eliminar</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+</div>

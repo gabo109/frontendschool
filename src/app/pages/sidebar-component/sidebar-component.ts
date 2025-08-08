@@ -43,10 +43,12 @@ export class SidebarComponent implements OnInit {
     { label: 'Inicio', route: '/user', icon: '🏠', roles: ['USER'] },
     { label: 'Perfil', route: '/admin/profile', icon: '👤', roles: ['ADMIN'] },
     { label: 'Perfil', route: '/user/profile', icon: '👤', roles: ['USER'] },
-    { label: 'Crear usuario', route: '/admin/signup', icon: '📋', roles: ['ADMIN'] },
-    { label: 'Agregar Categoría', route: '/admin/add-categoria', icon: '➕', roles: ['ADMIN'] },
+    { label: 'Usuario', route: '/admin/signup', icon: '📋', roles: ['ADMIN'] },
+    { label: 'Datos Informativos', route: '/user/datos-component', icon: '➕', roles: ['USER'] },
+    { label: 'Nivel Educativo', route: '/admin/nivel-component', icon: '📋', roles: ['ADMIN'] },
+    { label: 'Área', route: '/admin/area-component', icon: '📋', roles: ['ADMIN'] },
+    { label: 'Asignatura', route: '/admin/asignatura-component', icon: '📋', roles: ['ADMIN'] },
 
-    // El logout se maneja aparte
   ];
 
   constructor(public login: LoginService, private router: Router) { }

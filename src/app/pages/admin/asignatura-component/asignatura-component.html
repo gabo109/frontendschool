@@ -1,0 +1,54 @@
+<div class="register-container">
+    <h2>Asignatura</h2>
+    <form #asignaturaForm="ngForm" (ngSubmit)="formSubmit(asignatura, asignaturaForm)">
+        <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required placeholder="Nombre" [(ngModel)]="asignatura.nombre"
+                #nombre="ngModel" />
+            <div *ngIf="nombre.invalid && (nombre.touched || asignaturaForm.submitted)" class="error">
+                El nombre es obligatorio
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="checkbox-inline" for="activo">
+                Activo
+                <input id="activo" type="checkbox" [(ngModel)]="asignatura.activo" name="activo" />
+            </label>
+        </div>
+
+
+        <div *ngIf="messageError" class="error">
+            {{ messageError }}
+        </div>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">{{ asignatura.id ? 'Actualizar' : 'Guardar' }}</button>
+        </div>
+    </form>
+    <br />
+    @if (asignaturas.length > 0) {
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Activo</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (asignatura of asignaturas ; track asignatura.id) {
+            <tr>
+                <td>{{ asignatura.id }}</td>
+                <td>{{ asignatura.nombre }}</td>
+                <td>{{ asignatura.activo ? 'SI' : 'NO'}}</td>
+                <td><button class="btn btn-edit" (click)="editAsignatura(asignatura)">Editar</button></td>
+                <td><button class="btn btn-delete" (click)="confirmDelete(asignatura.id)">Eliminar</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+
+</div>

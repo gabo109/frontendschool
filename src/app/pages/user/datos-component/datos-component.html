@@ -1,0 +1,75 @@
+<div class="register-container" aria-label="Formulario de registro">
+    <h2>Datos Informativos</h2>
+    <form #userForm="ngForm" (ngSubmit)="formSubmit()">
+
+        <div class="field">
+            <label for="anioLectivo">Año Lectivo:</label>
+            <input id="anioLectivo" name="anioLectivo" type="text" required placeholder="Año Lectivo"
+                [(ngModel)]="informacion.anioLectivo" #anioLectivo="ngModel" />
+            <div *ngIf="anioLectivo.invalid && (anioLectivo.touched || userForm.submitted)" class="error">
+                El año lectivo es obligatorio
+            </div>
+        </div>
+        <div class="field">
+            <label for="docente">Docente:</label>
+            <input id="docente" name="docente" type="text" required placeholder="Docente" [(ngModel)]="nombreCompleto"
+                #docente="ngModel" disabled />
+
+        </div>
+
+        <div class="select-field">
+            <label for="nivel">Nivel educativo:</label>
+            <select id="nivel" name="nivel" [(ngModel)]="nivelSeleccionado" (change)="onNivelChange()">
+                <option [ngValue]="null">-- Selecciona uno --</option>
+                <option *ngFor="let nivel of niveles" [ngValue]="nivel">
+                    {{ nivel.nombre }}
+                </option>
+            </select>
+        </div>
+        <div *ngIf="areas.length > 0" class="select-field">
+            <label for="area">Área:</label>
+            <select id="area" name="area" [(ngModel)]="areaSeleccionada" (change)="onAreaChange()">
+                <option [ngValue]="null">Seleccione</option>
+                <option *ngFor="let area of areas" [ngValue]="area">{{ area.nombre }}</option>
+            </select>
+        </div>
+        <div *ngIf="asignaturas.length > 0" class="select-field">
+            <label for="asignatura">Asignatura:</label>
+            <select id="asignatura" name="asignatura" [(ngModel)]="asignaturaSeleccionada"
+                (change)="onAsignaturaChange()">
+                <option [ngValue]="null">Seleccione</option>
+                <option *ngFor="let asignatura of asignaturas" [ngValue]="asignatura">{{ asignatura.nombre }}
+                </option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="curso">Curso:</label>
+            <input id="curso" name="curso" type="text" required placeholder="Curso" [(ngModel)]="informacion.curso"
+                #curso="ngModel" />
+            <div *ngIf="curso.invalid && (curso.touched || userForm.submitted)" class="error">
+                El curso es obligatorio
+            </div>
+        </div>
+        <div class="field">
+            <label for="paralelo">Paralelo:</label>
+            <input id="paralelo" name="paralelo" type="text" required placeholder="Paralelo"
+                [(ngModel)]="informacion.paralelo" #paralelo="ngModel" />
+            <div *ngIf="paralelo.invalid && (paralelo.touched || userForm.submitted)" class="error">
+                El paralelo es obligatorio
+            </div>
+        </div>
+        <div *ngIf="messageSuccess" class="success">
+            {{ messageSuccess }}
+        </div>
+        <div *ngIf="messageError" class="error">
+            {{ messageError }}
+        </div>
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary">
+                {{ registroExiste ? 'Actualizar' : 'Registrar' }}
+            </button>
+        </div>
+
+    </form>
+</div>

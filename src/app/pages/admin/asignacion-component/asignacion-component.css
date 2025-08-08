@@ -1,0 +1,152 @@
+.register-container {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.field {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.field label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.field input {
+    width: 95%;
+    padding: 0.75rem 0.9rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: white;
+}
+
+.field input:focus {
+    border-color: #0077cc;
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.btn {
+
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #0077cc;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #005fa3;
+}
+
+.btn-secondary {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #3875b0;
+}
+
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.success {
+    color: #2ecc71; 
+    font-size: 14px;
+    text-align: left;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.select-field {
+  position: relative;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.select-field label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.select-field select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  appearance: none; /* quita estilo nativo en varios navegadores */
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.select-field select:focus {
+  border-color: #0077cc;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.2);
+}
+
+/* flecha personalizada (opcional) */
+.select-field {
+  --arrow-size: 12px;
+}
+.select-field::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  border-width: 6px 5px 0 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* deshabilitado */
+.select-field select:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+  color: #888;
+}
+
+/* estado de error */
+.select-field.error select {
+  border-color: #e74c3c;
+}
+
+.select-field .error-text {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 4px;
+}

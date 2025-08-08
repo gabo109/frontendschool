@@ -21,7 +21,7 @@ export class LoginService {
   }
 
   // Obtener usuario actual
-  public getCurrentUser(){
+  public getCurrentUser() {
     return this.http.get(`${baserUrl}/actual-usuario`);
   }
 
@@ -76,5 +76,9 @@ export class LoginService {
       return user.authorities[0].authority;
     }
     return null;
+  }
+
+  public clearToken(): void {
+    localStorage.removeItem(this.tokenKey);
   }
 }
